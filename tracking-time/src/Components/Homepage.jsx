@@ -25,7 +25,6 @@ const homeTile=[
     }
 ]
 
-
     const homeTile2=[
         {
             id:1,
@@ -83,10 +82,10 @@ const homeTile=[
   return (
     <div>
         <div style={{background:"#f6f8f9"}}>
-
   return (
     <div>
         <div>
+
 
             <div>
                 <b style={{color:"#00ad95"}}>TRACKINGTIME TIME TRACKER SOFTWARE</b>
@@ -106,8 +105,14 @@ const homeTile=[
 
                 <Button className="fr_btn" style={{background:"#00ad95",color:"white",width:"150px"}}>START FOR FREE</Button>
 
+
+                <Input placeholder="Your Work Email" type="email" style={{width:"250px", border:"1px solid black",background:"white"}}></Input>
+
+                <Button className="fr_btn" style={{background:"#00ad95",color:"white",width:"150px"}}>START FOR FREE</Button>
+
                 <Input placeholder="Your Work Email" type="email" style={{width:"250px", border:"1px solid black"}}></Input>
                 <Button className="fr_btn" style={{background:"#00ad95",color:"white"}}>START FOR FREE</Button>
+
 
             </div>
             <br/>
@@ -128,12 +133,16 @@ const homeTile=[
                 />
             </div>
 
+
+
             <div>
                 <br/>
             <b style={{fontWeight:"900",fontSize:"20px"}}>THE FEATURES YOUR PROJECT MANAGEMENT APP IS MISSING.</b>
             </div>
             <div style={{display:"flex",gap:"20px",padding:"10rem",marginTop:"-120px"}}>
                 
+
+
 
             <div style={{display:"flex",gap:"20px",padding:"10rem"}}>
 
@@ -193,7 +202,6 @@ const homeTile=[
                         ))
                         
 
-                }
 
                 </div>
             </div>
@@ -255,7 +263,10 @@ const homeTile=[
                 </div>
             
 
+
+
             </div>
+
 
             
         </div>

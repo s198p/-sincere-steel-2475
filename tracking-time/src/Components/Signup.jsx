@@ -1,22 +1,27 @@
-
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { useNavigate,NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// react-toastify\dist\ReactToastify.css
 
-const Login = () => {
+const Signup = () => {
 
     const history = useNavigate();
+    const [click,setClick]=useState(false);
 
     const [inpval, setInpval] = useState({
+        name: "",
         email: "",
+        date: "",
         password: ""
     })
 
-    const [data, setData] = useState([]);
+    function handleClick(value){
+        setClick(!click);
+    }
+    const [data,setData] = useState([]);
     console.log(inpval);
 
     const getdata = (e) => {
@@ -39,57 +44,40 @@ const Login = () => {
     const addData = (e) => {
         e.preventDefault();
 
-        const getuserArr = localStorage.getItem("useryoutube");
-        console.log(getuserArr);
+        const {email, password } = inpval;
 
-        const { email, password } = inpval;
         if (email === "") {
-            toast.error('email field is requred', {
+            toast.error('email field is required',{
                 position: "top-center",
             });
         } else if (!email.includes("@")) {
-            toast.error('plz enter valid email addres', {
+            toast.error('plz enter valid email addres',{
                 position: "top-center",
             });
-        } else if (password === "") {
-            toast.error('password field is requred', {
+        } 
+        else if (password === "") {
+            toast.error('password field is required',{
                 position: "top-center",
             });
-        } else if (password.length < 5) {
-            toast.error('password length greater five', {
-                position: "top-center",
-            });
-        } else {
+        } 
+        else {
+            console.log("data added succesfully");
+            history("/login")
+            localStorage.setItem("useryoutube",JSON.stringify([...data,inpval]));
 
-            if (getuserArr && getuserArr.length) {
-                const userdata = JSON.parse(getuserArr);
-                const userlogin = userdata.filter((el, k) => {
-                    return el.email === email && el.password === password
-                });
-
-                if (userlogin.length === 0) {
-                    alert("invalid details")
-                } else {
-                    console.log("user login succesfulyy");
-
-                    localStorage.setItem("user_login", JSON.stringify(userlogin))
-
-                    history("/workspace")
-                }
-            }
         }
 
     }
 
     return (
-        <>
-            <div style={{display:"flex"}}>
+        
+        <div style={{display:"flex"}}>
                 <div style={{background:"#1d252c ",height:"720px",width:"50%"}}>
                     <img style={{padding:"220px 50px 0px 50px"}}
                     src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/layout/header/ilus-header-2.svg"
                     />
                 </div>
-{/* .......................................................................................................................................  */}
+{/* ....................................................................................................................................... */}
                 <div style={{width:"50%",display:"flex",flexDirection:"column",textAlign:"center",padding:"2.5rem"}}>
                     <div >
                         <img style={{height:"15px"}}
@@ -121,155 +109,45 @@ const Login = () => {
                     <div className="container mt-3">
                         <section className='d-flex justify-content-between'>
                             <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
-                                <b style={{fontSize:"16px"}}>Sign in with your email</b>
-                                <br/>
+                                <h6>Sign up with your email</h6>
                                 <br/>
                                 <Form >
+                                    
+                                    <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail" style={{marginLeft:"170px"}}>
 
-                                    <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
-                                        <Form.Control type="email" name='email' onChange={getdata} placeholder="Email" style={{marginLeft:"170px",textAlign:"center"}}/>
+                                        <Form.Control type="email" name='email' onChange={getdata} placeholder="Email" style={{textAlign:"center"}}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword">
-                                        <Form.Control type="password" name='password' onChange={getdata} placeholder="Password" style={{marginLeft:"170px",textAlign:"center"}}/>
+                                
+
+                                    <Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword" style={{marginLeft:"170px"}}>
+
+                                        <Form.Control type="password" name='password' onChange={getdata} placeholder="Password" style={{textAlign:"center"}}/>
                                     </Form.Group>
-                                    <div style={{fontSize:"12px",display:"flex",justifyContent:"center"}}>
-                                        <p>Forgot your password?</p>
-                                    <p style={{textDecoration:"underline",cursor:"pointer"}}><b>Retrive</b></p>
+
+                                    <div>
+                                    <input type="checkBox" onClick={handleClick} value={click}></input>
+                                    <p style={{fontSize:"12px"}}>I agree with the <b style={{textDecoration: "underline",fontSize:"12px"}}>Terms of service & Privacy Policy</b></p>
                                     </div>
-                                    <Button variant="primary" className='col-lg-6' onClick={addData} style={{ background: "black",marginLeft:"25px" }} type="submit">
-                                        LOGIN
+
+
+                                    <Button disabled={!click} variant="primary" className='col-lg-6' onClick={addData} style={{ background: "Black" }} type="submit">
+                                        SIGN UP
                                     </Button>
                                 </Form>
+                                <NavLink to="/login" style={{color:"black",fontSize:"12px"}}>Back to login</NavLink>
                                 <br/>
-                                <NavLink to="/signup" style={{color:"black",fontSize:"12px"}}>Don't have an account? SIGNUP </NavLink>
+                                <NavLink to="" style={{color:"black",fontSize:"12px"}}>Terms of service / Privacy Policy</NavLink>
                             </div>
                             
                         </section>
-                <ToastContainer />
-            </div>
+                        <ToastContainer />
+                    </div>
                 </div>
 
 
         </div>
-
-            
-
-
-        </>
     )
 }
 
-export default Login
-
-
-
-// ...................................................................................................................................................
-// ...................................................................................................................................................
-
-
-
-
-
-        {/* ............................................................................................................................................ */}
-    //     <div className="container mt-3">
-    //     <section className='d-flex justify-content-between'>
-    //         <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
-    //             <h3 className='text-center col-lg-6'>Sign IN</h3>
-    //             <Form >
-
-    //                 <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
-
-    //                     <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter email" />
-    //                 </Form.Group>
-
-    //                 <Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword">
-
-    //                     <Form.Control type="password" name='password' onChange={getdata} placeholder="Password" />
-    //                 </Form.Group>
-    //                 <Button variant="primary" className='col-lg-6' onClick={addData} style={{ background: "rgb(67, 185, 127)" }} type="submit">
-    //                     Submit
-    //                 </Button>
-    //             </Form>
-    //             <p className='mt-3'>Already Have an Account <span>SignIn</span> </p>
-    //         </div>
-            
-    //     </section>
-    //     <ToastContainer />
-    // </div>
-
-import React, { useState } from "react";
-import Homepage from "./Homepage";
-import { Alert } from "react-bootstrap";
-
-function Login() {
-    const [emaillog, setEmaillog] = useState(" ");
-    const [passwordlog, setPasswordlog] = useState(" ");
-
-    const [flag, setFlag] = useState(false);
-
-    const [home, setHome] = useState(true);
-
-function handleLogin(e) {
-    e.preventDefault();
-    let pass = localStorage
-        .getItem("password")
-        .replace(/"/g, "");
-    let mail = localStorage.getItem("email").replace(/"/g, "");
-    
-
-    if (!emaillog || !passwordlog) {
-        setFlag(true);
-        console.log("EMPTY");
-    } else if (passwordlog !== pass || emaillog !== mail) {
-        setFlag(true);
-    } else {
-        setHome(!home);
-        setFlag(false);
-    }
-}
-
-  return (
-    <div>
-        {home ? (
-        <form onSubmit={handleLogin}>
-        <h3>LogIn</h3>
-        <div className="form-group">
-            <label>Email</label>
-            <input
-                type="email"
-                className="form-control"
-                placeholder="Enter email"
-                onChange={(event) => setEmaillog(event.target.value)}
-            />
-        </div>
-
-        <div className="form-group">
-            <label>Password</label>
-            <input
-                type="password"
-                className="form-control"
-                placeholder="Enter password"
-                onChange={(event) => setPasswordlog(event.target.value)}
-            />
-        </div>
-
-        <button type="submit" className="btn btn-dark btn-lg btn-block">
-            Login
-        </button>
-
-        {flag && (
-            <Alert color="primary" variant="warning">
-                Fill correct Info else keep trying.
-            </Alert>
-        )}
-        </form>
-    ) : (
-        <Homepage />
-    )}
-    </div>
-  );
-}
-
-export default Login;
-
+export default Signup
