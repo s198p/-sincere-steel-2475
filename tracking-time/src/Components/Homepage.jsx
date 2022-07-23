@@ -82,6 +82,11 @@ const homeTile=[
   return (
     <div>
         <div style={{background:"#f6f8f9"}}>
+  return (
+    <div>
+        <div>
+
+
             <div>
                 <b style={{color:"#00ad95"}}>TRACKINGTIME TIME TRACKER SOFTWARE</b>
                 <br/>
@@ -95,9 +100,20 @@ const homeTile=[
                 <Heading style={{fontSize:"74px"}}>to the next level.</Heading>
             </div>
             <div style={{display:"flex",gap:"20px",padding:"1rem",justifyContent:"center"}}>
+
                 <Input placeholder="Your Work Email" type="email" style={{width:"250px", border:"1px solid black",background:"white"}}></Input>
 
                 <Button className="fr_btn" style={{background:"#00ad95",color:"white",width:"150px"}}>START FOR FREE</Button>
+
+
+                <Input placeholder="Your Work Email" type="email" style={{width:"250px", border:"1px solid black",background:"white"}}></Input>
+
+                <Button className="fr_btn" style={{background:"#00ad95",color:"white",width:"150px"}}>START FOR FREE</Button>
+
+                <Input placeholder="Your Work Email" type="email" style={{width:"250px", border:"1px solid black"}}></Input>
+                <Button className="fr_btn" style={{background:"#00ad95",color:"white"}}>START FOR FREE</Button>
+
+
             </div>
             <br/>
             <br/>
@@ -116,12 +132,20 @@ const homeTile=[
                 alt="cover"
                 />
             </div>
+
+
+
             <div>
                 <br/>
             <b style={{fontWeight:"900",fontSize:"20px"}}>THE FEATURES YOUR PROJECT MANAGEMENT APP IS MISSING.</b>
             </div>
             <div style={{display:"flex",gap:"20px",padding:"10rem",marginTop:"-120px"}}>
                 
+
+
+
+            <div style={{display:"flex",gap:"20px",padding:"10rem"}}>
+
                 {
                     homeTile.map((item)=>(
                         
@@ -129,6 +153,7 @@ const homeTile=[
                         key={item.id} >
                             <div style={{width:"100%",}}>
                             <img style={{width:"100%"}}
+
                             alt="."
                             src={item.url}  />
                             <b>{item.head}</b>
@@ -166,6 +191,9 @@ const homeTile=[
                             alt="."
                             src={item.url}  />
                             <br/>
+
+                            src={item.url}  />
+
                             <b>{item.head}</b>
                             <p>{item.para}</p>
                             </div>
@@ -174,7 +202,7 @@ const homeTile=[
                         ))
                         
 
-                }
+
                 </div>
             </div>
             <br/>
@@ -234,6 +262,12 @@ const homeTile=[
                         </div>
                 </div>
             
+
+
+
+            </div>
+
+
             
         </div>
     </div>
