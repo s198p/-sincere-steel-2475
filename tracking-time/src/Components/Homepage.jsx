@@ -2,6 +2,10 @@ import { Button, Heading, Input, Link } from '@chakra-ui/react'
 import React from 'react';
 import "./Homepage.css";
 
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+
+
 const Homepage = () => {
 
 const homeTile=[
@@ -81,6 +85,11 @@ const homeTile=[
 
   return (
     <div>
+
+        <Navbar/>
+        
+        <div style={{background:"#f6f8f9"}}>
+
         <div style={{background:"#f6f8f9"}}>
   return (
     <div>
@@ -100,6 +109,10 @@ const homeTile=[
                 <Heading style={{fontSize:"74px"}}>to the next level.</Heading>
             </div>
             <div style={{display:"flex",gap:"20px",padding:"1rem",justifyContent:"center"}}>
+
+                <Input placeholder="Your Work Email" type="email" style={{width:"250px", border:"1px solid black",background:"white"}}></Input>
+
+                <Button className="fr_btn" style={{background:"#00ad95",color:"white",width:"150px"}}>START FOR FREE</Button>
 
                 <Input placeholder="Your Work Email" type="email" style={{width:"250px", border:"1px solid black",background:"white"}}></Input>
 
@@ -132,8 +145,6 @@ const homeTile=[
                 alt="cover"
                 />
             </div>
-
-
 
             <div>
                 <br/>
@@ -192,7 +203,9 @@ const homeTile=[
                             src={item.url}  />
                             <br/>
 
+
                             src={item.url}  />
+
 
                             <b>{item.head}</b>
                             <p>{item.para}</p>
@@ -200,7 +213,9 @@ const homeTile=[
                             
                             </div>
                         ))
-                        
+
+                }
+
 
 
                 </div>
@@ -263,6 +278,12 @@ const homeTile=[
                 </div>
             
 
+            
+        </div>
+        <br/>
+        <Footer/>
+
+
 
 
             </div>
@@ -270,6 +291,7 @@ const homeTile=[
 
             
         </div>
+
     </div>
   )
 }

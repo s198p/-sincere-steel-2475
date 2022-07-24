@@ -1,6 +1,11 @@
 import { Button, Heading, Input, Link } from '@chakra-ui/react'
 import React from 'react';
 
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+
+
+
 
 const Integration = () => {
 
@@ -81,6 +86,9 @@ const homeTile=[
 
   return (
     <div>
+
+        <Navbar/>
+
         <div style={{background:"#f6f8f9"}}>
             <div>
                 <b style={{color:"#00ad95"}}>TRACKINGTIME TIME TRACKER SOFTWARE</b>
@@ -236,6 +244,10 @@ const homeTile=[
             
             
         </div>
+
+        <br/>
+        <Footer/>
+
     </div>
   )
 }

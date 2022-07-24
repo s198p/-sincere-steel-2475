@@ -6,6 +6,11 @@ import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+
+
+
 const Signup = () => {
 
     const history = useNavigate();
@@ -70,8 +75,15 @@ const Signup = () => {
     }
 
     return (
+
+        <>
+        <Navbar/>
+        <div style={{display:"flex"}}>
+
+
         
         <div style={{display:"flex"}}>
+
                 <div style={{background:"#1d252c ",height:"720px",width:"50%"}}>
                     <img style={{padding:"220px 50px 0px 50px"}}
                     src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/layout/header/ilus-header-2.svg"
@@ -147,6 +159,11 @@ const Signup = () => {
 
 
         </div>
+
+        <br/>
+        <Footer/>
+    </>
+
     )
 }
 
