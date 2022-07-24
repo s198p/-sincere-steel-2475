@@ -1,0 +1,32 @@
+.logo{
+    height:25px;
+    margin-Top:-6px
+    
+}
+.free_nbtn{
+border:2px solid #00ad95;
+
+}
+.log_nbtn{
+    background-color:#00ad95;
+    color:white;
+}
+.navsub{
+    display:flex;
+    gap:60px;
+    padding:1rem
+    
+}
+.navmain{
+    /* border:1px solid red; */
+    height:70px;
+    display:flex;
+    justify-content:space-between;
+    padding:0px 280px 0px 280px 
+}
+.ctg{
+    margin-top:10px
+}
+.menulist{
+    border:none;
+}
