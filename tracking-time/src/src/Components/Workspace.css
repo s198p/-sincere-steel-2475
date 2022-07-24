@@ -1,0 +1,39 @@
+p{
+    font-size: 12px;
+}
+b{
+    font-size: 12px;
+}
+.worknav{
+    border:1px solid red;
+    height:30px;
+    display:flex;
+    justify-content:space-between;
+    padding:0px 10px 0px 10px
+
+}
+.navlink>b{
+    cursor:pointer;
+    margin-top: -3px;
+}
+.nav1{
+    padding:0.5rem
+}
+.workspace>div{
+    display:flex;
+    justify-content:space-between;
+    padding:0px 20px 0px 20px
+}
+.workspace{
+    display:flex;
+}
+.workdiv1{
+    width:20%;
+    border:1px solid black;
+    height:690px
+}
+.workdiv2{
+    width:80%;
+    border:1px solid black;
+    height:690px;
+}
