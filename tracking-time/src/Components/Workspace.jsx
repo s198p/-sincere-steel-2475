@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 // import Modal from 'react-bootstrap/Modal'
+
 // import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom'
 import {SearchIcon,AddIcon,DownloadIcon,QuestionOutlineIcon,ChevronDownIcon,ArrowForwardIcon} from "@chakra-ui/icons"
@@ -13,12 +14,20 @@ import {Button, Avatar,Menu,
     MenuDivider,useDisclosure } from "@chakra-ui/react"
 import "./Workspace.css"
 
+import Button from 'react-bootstrap/Button'
+import { useNavigate } from 'react-router-dom'
+
+
 const Workspace = () => {
 
     const [logindata, setLoginData] = useState([]);
+
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef()
     
+
+
+
 
     const history = useNavigate();
 
@@ -61,6 +70,7 @@ const Workspace = () => {
     }, [])
 
     return (
+
         <div>
             {
                 logindata.length === 0 ? "errror" :
@@ -234,6 +244,38 @@ const Workspace = () => {
 
             
         </div>
+
+        <>
+            {
+                logindata.length === 0 ? "errror" :
+                    <>
+                        <h1>detials page</h1>
+                        <h1>{logindata[0].name}</h1>
+                        <Button style={{ background:"red"}}
+                        onClick={userlogout}>LogOut</Button>
+
+                {/* {
+                    logindata[0].date === todayDate ? 
+                    <Modal show={show} onHide={handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>{logindata[0].name} 😄</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>Wish you many many happy returns of the day ! 🍰</Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                                <Button variant="primary" onClick={handleClose}>
+                                    Save Changes
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>:""
+                }    */}
+                    
+                    </>
+            }
+        </>
+
     )
 }
 
